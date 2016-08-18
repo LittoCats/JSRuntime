@@ -7,9 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A13195BF1D644B07006F34B3 /* JSRuntime.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A13195BE1D644B07006F34B3 /* JSRuntime.h */; };
-		A13195C11D644B07006F34B3 /* JSRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = A13195C01D644B07006F34B3 /* JSRuntime.m */; };
+		A13195C81D644C42006F34B3 /* JSRuntime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A13195C71D644C42006F34B3 /* JSRuntime.cpp */; };
+		A13195D31D644DCC006F34B3 /* Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = A13195D21D644DCC006F34B3 /* Tests.mm */; };
+		A13195D51D644DCC006F34B3 /* libJSRuntime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A13195BB1D644B07006F34B3 /* libJSRuntime.a */; };
+		A13195DD1D644FA1006F34B3 /* JSWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A13195DB1D644FA1006F34B3 /* JSWrapper.cpp */; };
+		A13195EF1D64609F006F34B3 /* CWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A13195ED1D64609F006F34B3 /* CWrapper.cpp */; };
+		A13195F31D6460AB006F34B3 /* FoundationWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A13195F11D6460AB006F34B3 /* FoundationWrapper.cpp */; };
+		A131961D1D648C8E006F34B3 /* libffi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A131961B1D648C8E006F34B3 /* libffi.a */; };
+		A131961E1D648C8E006F34B3 /* libffi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A131961B1D648C8E006F34B3 /* libffi.a */; };
+		A131961F1D648C8E006F34B3 /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A131961C1D648C8E006F34B3 /* libuv.a */; };
+		A13196201D648C8E006F34B3 /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A131961C1D648C8E006F34B3 /* libuv.a */; };
+		A13196221D64A64D006F34B3 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A13196211D64A64D006F34B3 /* libstdc++.tbd */; };
+		A13196241D656692006F34B3 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13196231D656692006F34B3 /* JavaScriptCore.framework */; };
+		A13196261D6566F2006F34B3 /* TestJSWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A13196251D6566F2006F34B3 /* TestJSWrapper.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A13195D61D644DCC006F34B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A13195B31D644B07006F34B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A13195BA1D644B07006F34B3;
+			remoteInfo = JSRuntime;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		A13195B91D644B07006F34B3 /* CopyFiles */ = {
@@ -18,7 +39,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				A13195BF1D644B07006F34B3 /* JSRuntime.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -26,8 +46,53 @@
 
 /* Begin PBXFileReference section */
 		A13195BB1D644B07006F34B3 /* libJSRuntime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJSRuntime.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A13195BE1D644B07006F34B3 /* JSRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSRuntime.h; sourceTree = "<group>"; };
-		A13195C01D644B07006F34B3 /* JSRuntime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSRuntime.m; sourceTree = "<group>"; };
+		A13195C71D644C42006F34B3 /* JSRuntime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSRuntime.cpp; sourceTree = "<group>"; };
+		A13195CA1D644C8D006F34B3 /* Utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Utils.hpp; sourceTree = "<group>"; };
+		A13195D01D644DCC006F34B3 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A13195D21D644DCC006F34B3 /* Tests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Tests.mm; sourceTree = "<group>"; };
+		A13195D41D644DCC006F34B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A13195DB1D644FA1006F34B3 /* JSWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSWrapper.cpp; sourceTree = "<group>"; };
+		A13195DC1D644FA1006F34B3 /* JSWrapper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JSWrapper.hpp; sourceTree = "<group>"; };
+		A13195ED1D64609F006F34B3 /* CWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWrapper.cpp; sourceTree = "<group>"; };
+		A13195EE1D64609F006F34B3 /* CWrapper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CWrapper.hpp; sourceTree = "<group>"; };
+		A13195F11D6460AB006F34B3 /* FoundationWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FoundationWrapper.cpp; sourceTree = "<group>"; };
+		A13195F21D6460AB006F34B3 /* FoundationWrapper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FoundationWrapper.hpp; sourceTree = "<group>"; };
+		A13195FB1D648C8E006F34B3 /* ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi.h; sourceTree = "<group>"; };
+		A13195FC1D648C8E006F34B3 /* ffi_arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_arm64.h; sourceTree = "<group>"; };
+		A13195FD1D648C8E006F34B3 /* ffi_armv7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_armv7.h; sourceTree = "<group>"; };
+		A13195FE1D648C8E006F34B3 /* ffi_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_common.h; sourceTree = "<group>"; };
+		A13195FF1D648C8E006F34B3 /* ffi_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_i386.h; sourceTree = "<group>"; };
+		A13196001D648C8E006F34B3 /* ffi_x86_64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_x86_64.h; sourceTree = "<group>"; };
+		A13196011D648C8E006F34B3 /* fficonfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig.h; sourceTree = "<group>"; };
+		A13196021D648C8E006F34B3 /* fficonfig_arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig_arm64.h; sourceTree = "<group>"; };
+		A13196031D648C8E006F34B3 /* fficonfig_armv7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig_armv7.h; sourceTree = "<group>"; };
+		A13196041D648C8E006F34B3 /* fficonfig_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig_i386.h; sourceTree = "<group>"; };
+		A13196051D648C8E006F34B3 /* fficonfig_x86_64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig_x86_64.h; sourceTree = "<group>"; };
+		A13196061D648C8E006F34B3 /* ffitarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget.h; sourceTree = "<group>"; };
+		A13196071D648C8E006F34B3 /* ffitarget_arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_arm64.h; sourceTree = "<group>"; };
+		A13196081D648C8E006F34B3 /* ffitarget_armv7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_armv7.h; sourceTree = "<group>"; };
+		A13196091D648C8E006F34B3 /* ffitarget_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_i386.h; sourceTree = "<group>"; };
+		A131960A1D648C8E006F34B3 /* ffitarget_x86_64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_x86_64.h; sourceTree = "<group>"; };
+		A131960C1D648C8E006F34B3 /* android-ifaddrs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "android-ifaddrs.h"; sourceTree = "<group>"; };
+		A131960D1D648C8E006F34B3 /* pthread-barrier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "pthread-barrier.h"; sourceTree = "<group>"; };
+		A131960E1D648C8E006F34B3 /* stdint-msvc2008.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "stdint-msvc2008.h"; sourceTree = "<group>"; };
+		A131960F1D648C8E006F34B3 /* tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tree.h; sourceTree = "<group>"; };
+		A13196101D648C8E006F34B3 /* uv-aix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "uv-aix.h"; sourceTree = "<group>"; };
+		A13196111D648C8E006F34B3 /* uv-bsd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "uv-bsd.h"; sourceTree = "<group>"; };
+		A13196121D648C8E006F34B3 /* uv-darwin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "uv-darwin.h"; sourceTree = "<group>"; };
+		A13196131D648C8E006F34B3 /* uv-errno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "uv-errno.h"; sourceTree = "<group>"; };
+		A13196141D648C8E006F34B3 /* uv-linux.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "uv-linux.h"; sourceTree = "<group>"; };
+		A13196151D648C8E006F34B3 /* uv-sunos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "uv-sunos.h"; sourceTree = "<group>"; };
+		A13196161D648C8E006F34B3 /* uv-threadpool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "uv-threadpool.h"; sourceTree = "<group>"; };
+		A13196171D648C8E006F34B3 /* uv-unix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "uv-unix.h"; sourceTree = "<group>"; };
+		A13196181D648C8E006F34B3 /* uv-version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "uv-version.h"; sourceTree = "<group>"; };
+		A13196191D648C8E006F34B3 /* uv-win.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "uv-win.h"; sourceTree = "<group>"; };
+		A131961A1D648C8E006F34B3 /* uv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uv.h; sourceTree = "<group>"; };
+		A131961B1D648C8E006F34B3 /* libffi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libffi.a; sourceTree = "<group>"; };
+		A131961C1D648C8E006F34B3 /* libuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libuv.a; sourceTree = "<group>"; };
+		A13196211D64A64D006F34B3 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		A13196231D656692006F34B3 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		A13196251D6566F2006F34B3 /* TestJSWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestJSWrapper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +100,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A131961F1D648C8E006F34B3 /* libuv.a in Frameworks */,
+				A131961D1D648C8E006F34B3 /* libffi.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A13195CD1D644DCC006F34B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A13196241D656692006F34B3 /* JavaScriptCore.framework in Frameworks */,
+				A13196221D64A64D006F34B3 /* libstdc++.tbd in Frameworks */,
+				A13196201D648C8E006F34B3 /* libuv.a in Frameworks */,
+				A13195D51D644DCC006F34B3 /* libJSRuntime.a in Frameworks */,
+				A131961E1D648C8E006F34B3 /* libffi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				A13195BD1D644B07006F34B3 /* JSRuntime */,
+				A13195D11D644DCC006F34B3 /* Tests */,
+				A13195F81D648C8E006F34B3 /* Frameworks */,
 				A13195BC1D644B07006F34B3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				A13195BB1D644B07006F34B3 /* libJSRuntime.a */,
+				A13195D01D644DCC006F34B3 /* Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,10 +142,92 @@
 		A13195BD1D644B07006F34B3 /* JSRuntime */ = {
 			isa = PBXGroup;
 			children = (
-				A13195BE1D644B07006F34B3 /* JSRuntime.h */,
-				A13195C01D644B07006F34B3 /* JSRuntime.m */,
+				A13195C71D644C42006F34B3 /* JSRuntime.cpp */,
+				A13195CA1D644C8D006F34B3 /* Utils.hpp */,
+				A13195DB1D644FA1006F34B3 /* JSWrapper.cpp */,
+				A13195DC1D644FA1006F34B3 /* JSWrapper.hpp */,
+				A13195ED1D64609F006F34B3 /* CWrapper.cpp */,
+				A13195EE1D64609F006F34B3 /* CWrapper.hpp */,
+				A13195F11D6460AB006F34B3 /* FoundationWrapper.cpp */,
+				A13195F21D6460AB006F34B3 /* FoundationWrapper.hpp */,
 			);
 			path = JSRuntime;
+			sourceTree = "<group>";
+		};
+		A13195D11D644DCC006F34B3 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A13195D21D644DCC006F34B3 /* Tests.mm */,
+				A13195D41D644DCC006F34B3 /* Info.plist */,
+				A13196251D6566F2006F34B3 /* TestJSWrapper.m */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		A13195F81D648C8E006F34B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A13196231D656692006F34B3 /* JavaScriptCore.framework */,
+				A13196211D64A64D006F34B3 /* libstdc++.tbd */,
+				A13195F91D648C8E006F34B3 /* include */,
+				A131961B1D648C8E006F34B3 /* libffi.a */,
+				A131961C1D648C8E006F34B3 /* libuv.a */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		A13195F91D648C8E006F34B3 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				A13195FA1D648C8E006F34B3 /* ffi */,
+				A131960B1D648C8E006F34B3 /* uv */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		A13195FA1D648C8E006F34B3 /* ffi */ = {
+			isa = PBXGroup;
+			children = (
+				A13195FB1D648C8E006F34B3 /* ffi.h */,
+				A13195FC1D648C8E006F34B3 /* ffi_arm64.h */,
+				A13195FD1D648C8E006F34B3 /* ffi_armv7.h */,
+				A13195FE1D648C8E006F34B3 /* ffi_common.h */,
+				A13195FF1D648C8E006F34B3 /* ffi_i386.h */,
+				A13196001D648C8E006F34B3 /* ffi_x86_64.h */,
+				A13196011D648C8E006F34B3 /* fficonfig.h */,
+				A13196021D648C8E006F34B3 /* fficonfig_arm64.h */,
+				A13196031D648C8E006F34B3 /* fficonfig_armv7.h */,
+				A13196041D648C8E006F34B3 /* fficonfig_i386.h */,
+				A13196051D648C8E006F34B3 /* fficonfig_x86_64.h */,
+				A13196061D648C8E006F34B3 /* ffitarget.h */,
+				A13196071D648C8E006F34B3 /* ffitarget_arm64.h */,
+				A13196081D648C8E006F34B3 /* ffitarget_armv7.h */,
+				A13196091D648C8E006F34B3 /* ffitarget_i386.h */,
+				A131960A1D648C8E006F34B3 /* ffitarget_x86_64.h */,
+			);
+			path = ffi;
+			sourceTree = "<group>";
+		};
+		A131960B1D648C8E006F34B3 /* uv */ = {
+			isa = PBXGroup;
+			children = (
+				A131960C1D648C8E006F34B3 /* android-ifaddrs.h */,
+				A131960D1D648C8E006F34B3 /* pthread-barrier.h */,
+				A131960E1D648C8E006F34B3 /* stdint-msvc2008.h */,
+				A131960F1D648C8E006F34B3 /* tree.h */,
+				A13196101D648C8E006F34B3 /* uv-aix.h */,
+				A13196111D648C8E006F34B3 /* uv-bsd.h */,
+				A13196121D648C8E006F34B3 /* uv-darwin.h */,
+				A13196131D648C8E006F34B3 /* uv-errno.h */,
+				A13196141D648C8E006F34B3 /* uv-linux.h */,
+				A13196151D648C8E006F34B3 /* uv-sunos.h */,
+				A13196161D648C8E006F34B3 /* uv-threadpool.h */,
+				A13196171D648C8E006F34B3 /* uv-unix.h */,
+				A13196181D648C8E006F34B3 /* uv-version.h */,
+				A13196191D648C8E006F34B3 /* uv-win.h */,
+				A131961A1D648C8E006F34B3 /* uv.h */,
+			);
+			path = uv;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -73,6 +237,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A13195C41D644B07006F34B3 /* Build configuration list for PBXNativeTarget "JSRuntime" */;
 			buildPhases = (
+				A13195F51D6467E0006F34B3 /* ShellScript */,
 				A13195B71D644B07006F34B3 /* Sources */,
 				A13195B81D644B07006F34B3 /* Frameworks */,
 				A13195B91D644B07006F34B3 /* CopyFiles */,
@@ -86,6 +251,24 @@
 			productReference = A13195BB1D644B07006F34B3 /* libJSRuntime.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		A13195CF1D644DCC006F34B3 /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A13195D81D644DCC006F34B3 /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				A13195CC1D644DCC006F34B3 /* Sources */,
+				A13195CD1D644DCC006F34B3 /* Frameworks */,
+				A13195CE1D644DCC006F34B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A13195D71D644DCC006F34B3 /* PBXTargetDependency */,
+			);
+			name = Tests;
+			productName = Tests;
+			productReference = A13195D01D644DCC006F34B3 /* Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -96,6 +279,9 @@
 				ORGANIZATIONNAME = "程巍巍";
 				TargetAttributes = {
 					A13195BA1D644B07006F34B3 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					A13195CF1D644DCC006F34B3 = {
 						CreatedOnToolsVersion = 7.3;
 					};
 				};
@@ -113,20 +299,67 @@
 			projectRoot = "";
 			targets = (
 				A13195BA1D644B07006F34B3 /* JSRuntime */,
+				A13195CF1D644DCC006F34B3 /* Tests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A13195CE1D644DCC006F34B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A13195F51D6467E0006F34B3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "coffee JSRuntime/JSRuntime.coffee";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A13195B71D644B07006F34B3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A13195C11D644B07006F34B3 /* JSRuntime.m in Sources */,
+				A13195DD1D644FA1006F34B3 /* JSWrapper.cpp in Sources */,
+				A13195EF1D64609F006F34B3 /* CWrapper.cpp in Sources */,
+				A13195F31D6460AB006F34B3 /* FoundationWrapper.cpp in Sources */,
+				A13195C81D644C42006F34B3 /* JSRuntime.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A13195CC1D644DCC006F34B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A13196261D6566F2006F34B3 /* TestJSWrapper.m in Sources */,
+				A13195D31D644DCC006F34B3 /* Tests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A13195D71D644DCC006F34B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A13195BA1D644B07006F34B3 /* JSRuntime */;
+			targetProxy = A13195D61D644DCC006F34B3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A13195C21D644B07006F34B3 /* Debug */ = {
@@ -214,6 +447,14 @@
 		A13195C51D644B07006F34B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Frameworks/include/uv",
+					"$(PROJECT_DIR)/Frameworks/include/ffi",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -223,9 +464,47 @@
 		A13195C61D644B07006F34B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Frameworks/include/uv",
+					"$(PROJECT_DIR)/Frameworks/include/ffi",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A13195D91D644DCC006F34B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/include/ffi";
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.littocats.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A13195DA1D644DCC006F34B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/include/ffi";
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.littocats.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -246,6 +525,14 @@
 			buildConfigurations = (
 				A13195C51D644B07006F34B3 /* Debug */,
 				A13195C61D644B07006F34B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A13195D81D644DCC006F34B3 /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A13195D91D644DCC006F34B3 /* Debug */,
+				A13195DA1D644DCC006F34B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
