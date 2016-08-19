@@ -12,7 +12,17 @@
 
 #include "Utils.hpp"
 
-#include <objc/runtime.h>
-#include <objc/message.h>
+#include "JSWrapper.hpp"
+
+namespace jsr { namespace foundation {
+    
+    void ExtractValue(jsr::Argument* argument, JSContextRef ctx, JSObjectRef object);
+    JSValueRef GenerateValue(jsr::Argument* argument, JSContextRef ctx);
+    
+    JSObjectRef CallAsConstructor(Foundation);
+    
+}}
+
+
 
 #endif /* FoundationWrapper_hpp */

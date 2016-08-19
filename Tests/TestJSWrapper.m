@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <objc/runtime.h>
 
 @interface TestJSWrapper : XCTestCase
 
@@ -24,9 +25,26 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+struct JSBlock_s {
+    
+} JSBlock;
+
+- (void)test {
+    
+    void (^block)() = ^{};
+    
+    id task = block;
+    
+    Class cls = [task class];
+    
+    unsigned outCOunt = 0;
+    Method* methods = class_copyMethodList(cls, &outCOunt);
+    for (unsigned index = 0; index < outCOunt; index++) {
+        printf("name: %s\t\n", sel_getName(method_getName(methods[index])));
+    }
+    
+    NSLog(@"done.");
+    
 }
 
 @end

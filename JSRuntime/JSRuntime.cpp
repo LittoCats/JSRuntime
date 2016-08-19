@@ -6,9 +6,15 @@
 //  Copyright © 2016 程巍巍. All rights reserved.
 //
 
-#include "JSWrapper.hpp"
-#include "CWrapper.hpp"
 #include <objc/runtime.h>
+
+#include "JSWrapper.hpp"
+
+#include "CUtils.cpp"
+#include "CWrapper.hpp"
+#include "FoundationWrapper.hpp"
+
+
 
 #include ".JSRuntime.coffee"
 
@@ -17,7 +23,9 @@ extern "C" JSValueRef/*exception*/ JSRuntimeAttachToJSContext(JSGlobalContextRef
     JSValueRef exception = NULL;
     
     std::map<const char*, JSValueRef> bindings = {
-        {"_C", JSObjectMakeConstructor(ctx, NULL, jsr::c::ConstructC)}
+        {"CUtils", JSObjectMakeConstructor(ctx, NULL, jsr::cutils::ConstructCUtils)},
+        {"C", JSObjectMakeConstructor(ctx, NULL, jsr::c::ConstructC)},
+        {"Foundation", JSObjectMakeConstructor(ctx, NULL, jsr::foundation::ConstructFoundation)},
     };
     
     std::vector<JSStringRef> fNames;
@@ -28,7 +36,7 @@ extern "C" JSValueRef/*exception*/ JSRuntimeAttachToJSContext(JSGlobalContextRef
         fArgs.push_back(iter->second);
     }
     
-    JSStringRef initScript = JSStringCreateWithUTF8CString(__buildin__);
+    JSStringRef initScript = JSStringCreateWithUTF8CString((char*)__buildin__);
     JSStringRef initURL = JSStringCreateWithUTF8CString("JSRuntime");
     
     JSObjectRef fn = JSObjectMakeFunction(ctx, NULL, (unsigned)fNames.size(), fNames.data(), initScript, initURL, 0, &exception);

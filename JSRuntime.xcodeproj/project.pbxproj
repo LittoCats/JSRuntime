@@ -12,7 +12,7 @@
 		A13195D51D644DCC006F34B3 /* libJSRuntime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A13195BB1D644B07006F34B3 /* libJSRuntime.a */; };
 		A13195DD1D644FA1006F34B3 /* JSWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A13195DB1D644FA1006F34B3 /* JSWrapper.cpp */; };
 		A13195EF1D64609F006F34B3 /* CWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A13195ED1D64609F006F34B3 /* CWrapper.cpp */; };
-		A13195F31D6460AB006F34B3 /* FoundationWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A13195F11D6460AB006F34B3 /* FoundationWrapper.cpp */; };
+		A13195F31D6460AB006F34B3 /* FoundationWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = A13195F11D6460AB006F34B3 /* FoundationWrapper.mm */; };
 		A131961D1D648C8E006F34B3 /* libffi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A131961B1D648C8E006F34B3 /* libffi.a */; };
 		A131961E1D648C8E006F34B3 /* libffi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A131961B1D648C8E006F34B3 /* libffi.a */; };
 		A131961F1D648C8E006F34B3 /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A131961C1D648C8E006F34B3 /* libuv.a */; };
@@ -20,6 +20,7 @@
 		A13196221D64A64D006F34B3 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A13196211D64A64D006F34B3 /* libstdc++.tbd */; };
 		A13196241D656692006F34B3 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13196231D656692006F34B3 /* JavaScriptCore.framework */; };
 		A13196261D6566F2006F34B3 /* TestJSWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A13196251D6566F2006F34B3 /* TestJSWrapper.m */; };
+		A13196291D65826B006F34B3 /* CUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A13196271D65826B006F34B3 /* CUtils.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +56,7 @@
 		A13195DC1D644FA1006F34B3 /* JSWrapper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JSWrapper.hpp; sourceTree = "<group>"; };
 		A13195ED1D64609F006F34B3 /* CWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWrapper.cpp; sourceTree = "<group>"; };
 		A13195EE1D64609F006F34B3 /* CWrapper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CWrapper.hpp; sourceTree = "<group>"; };
-		A13195F11D6460AB006F34B3 /* FoundationWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FoundationWrapper.cpp; sourceTree = "<group>"; };
+		A13195F11D6460AB006F34B3 /* FoundationWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FoundationWrapper.mm; sourceTree = "<group>"; };
 		A13195F21D6460AB006F34B3 /* FoundationWrapper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FoundationWrapper.hpp; sourceTree = "<group>"; };
 		A13195FB1D648C8E006F34B3 /* ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi.h; sourceTree = "<group>"; };
 		A13195FC1D648C8E006F34B3 /* ffi_arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_arm64.h; sourceTree = "<group>"; };
@@ -93,6 +94,8 @@
 		A13196211D64A64D006F34B3 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		A13196231D656692006F34B3 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		A13196251D6566F2006F34B3 /* TestJSWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestJSWrapper.m; sourceTree = "<group>"; };
+		A13196271D65826B006F34B3 /* CUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CUtils.cpp; sourceTree = "<group>"; };
+		A13196281D65826B006F34B3 /* CUtils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CUtils.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,8 +151,10 @@
 				A13195DC1D644FA1006F34B3 /* JSWrapper.hpp */,
 				A13195ED1D64609F006F34B3 /* CWrapper.cpp */,
 				A13195EE1D64609F006F34B3 /* CWrapper.hpp */,
-				A13195F11D6460AB006F34B3 /* FoundationWrapper.cpp */,
+				A13195F11D6460AB006F34B3 /* FoundationWrapper.mm */,
 				A13195F21D6460AB006F34B3 /* FoundationWrapper.hpp */,
+				A13196271D65826B006F34B3 /* CUtils.cpp */,
+				A13196281D65826B006F34B3 /* CUtils.hpp */,
 			);
 			path = JSRuntime;
 			sourceTree = "<group>";
@@ -337,7 +342,8 @@
 			files = (
 				A13195DD1D644FA1006F34B3 /* JSWrapper.cpp in Sources */,
 				A13195EF1D64609F006F34B3 /* CWrapper.cpp in Sources */,
-				A13195F31D6460AB006F34B3 /* FoundationWrapper.cpp in Sources */,
+				A13195F31D6460AB006F34B3 /* FoundationWrapper.mm in Sources */,
+				A13196291D65826B006F34B3 /* CUtils.cpp in Sources */,
 				A13195C81D644C42006F34B3 /* JSRuntime.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,6 +533,7 @@
 				A13195C61D644B07006F34B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A13195D81D644DCC006F34B3 /* Build configuration list for PBXNativeTarget "Tests" */ = {
 			isa = XCConfigurationList;
@@ -535,6 +542,7 @@
 				A13195DA1D644DCC006F34B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

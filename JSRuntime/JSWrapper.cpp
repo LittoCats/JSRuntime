@@ -8,6 +8,10 @@
 
 #include "JSWrapper.hpp"
 
+#ifdef __APPLE__
+#include "FoundationWrapper.hpp"
+#endif
+
 template <typename T>
 static ffi_type* GetIntegerType() {
     size_t len = sizeof(T);
@@ -36,38 +40,39 @@ static ffi_type* GetUnIntegerType() {
 
 #pragma mark - ffi_type Table
 // 方法签名 参照 oc 标准
-static ffi_type** DFTT /*Default FFI Type Table*/ = []()->ffi_type**{
-    static ffi_type*  DFTT[128];
+static jsr::Argument::AType** DFTT /*Default FFI Type Table*/ = []()->jsr::Argument::AType**{
+    static jsr::Argument::AType*  DFTT[128];
     
-    DFTT['o'] = &ffi_type_sint8;        /* #define _C_SINT8 */
-    DFTT['O'] = &ffi_type_uint8;        /* #define _C_UINT8 */
-    DFTT['h'] = &ffi_type_sint16;       /* #define _C_SINT16 */
-    DFTT['H'] = &ffi_type_uint16;       /* #define _C_UINT16 */
-    DFTT['t'] = &ffi_type_sint32;       /* #define _C_SINT32 */
-    DFTT['T'] = &ffi_type_uint32;       /* #define _C_UINT32 */
-    DFTT['x'] = &ffi_type_sint64;       /* #define _C_SINT64 */
-    DFTT['X'] = &ffi_type_uint64;       /* #define _C_UINT64 */
-    DFTT['@'] = &ffi_type_pointer;      /* #define _C_ID */
-    DFTT['#'] = &ffi_type_pointer;      /* #define _C_CLASS */
-    DFTT[':'] = &ffi_type_pointer;      /* #define _C_SEL */
-    DFTT['c'] = &ffi_type_schar;        /* #define _C_CHR */
-    DFTT['C'] = &ffi_type_uchar;        /* #define _C_UCHR */
-    DFTT['s'] = &ffi_type_sshort;       /* #define _C_SHT */
-    DFTT['S'] = &ffi_type_ushort;       /* #define _C_USHT */
-    DFTT['i'] = &ffi_type_sint;         /* #define _C_INT */
-    DFTT['I'] = &ffi_type_uint;         /* #define _C_UINT */
-    DFTT['l'] = &ffi_type_slong;        /* #define _C_LNG */
-    DFTT['L'] = &ffi_type_ulong;        /* #define _C_ULNG */
-    DFTT['q'] = GetIntegerType<long long>(); /* #define _C_LNG_LNG */
-    DFTT['Q'] = GetUnIntegerType<unsigned long long>(); /* #define _C_ULNG_LNG */
-    DFTT['f'] = &ffi_type_float;        /* #define _C_FLT */
-    DFTT['d'] = &ffi_type_double;       /* #define _C_DBL */
+    DFTT['o'] = new jsr::Argument::AType(&ffi_type_sint8, 'o');        /* #define _C_SINT8 */
+    DFTT['O'] = new jsr::Argument::AType(&ffi_type_uint8, 'O');        /* #define _C_UINT8 */
+    DFTT['h'] = new jsr::Argument::AType(&ffi_type_sint16, 'h');       /* #define _C_SINT16 */
+    DFTT['H'] = new jsr::Argument::AType(&ffi_type_uint16, 'H');       /* #define _C_UINT16 */
+    DFTT['t'] = new jsr::Argument::AType(&ffi_type_sint32, 't');       /* #define _C_SINT32 */
+    DFTT['T'] = new jsr::Argument::AType(&ffi_type_uint32, 'T');       /* #define _C_UINT32 */
+    DFTT['x'] = new jsr::Argument::AType(&ffi_type_sint64, 'x');       /* #define _C_SINT64 */
+    DFTT['X'] = new jsr::Argument::AType(&ffi_type_uint64, 'X');       /* #define _C_UINT64 */
+    DFTT['@'] = new jsr::Argument::AType(&ffi_type_pointer, '@');      /* #define _C_ID */
+    DFTT['#'] = new jsr::Argument::AType(&ffi_type_pointer, '#');      /* #define _C_CLASS */
+    DFTT[':'] = new jsr::Argument::AType(&ffi_type_pointer, ':');      /* #define _C_SEL */
+    DFTT['c'] = new jsr::Argument::AType(&ffi_type_schar, 'c');        /* #define _C_CHR */
+    DFTT['C'] = new jsr::Argument::AType(&ffi_type_uchar, 'C');        /* #define _C_UCHR */
+    DFTT['s'] = new jsr::Argument::AType(&ffi_type_sshort, 's');       /* #define _C_SHT */
+    DFTT['S'] = new jsr::Argument::AType(&ffi_type_ushort, 'S');       /* #define _C_USHT */
+    DFTT['i'] = new jsr::Argument::AType(&ffi_type_sint, 'i');         /* #define _C_INT */
+    DFTT['I'] = new jsr::Argument::AType(&ffi_type_uint, 'I');         /* #define _C_UINT */
+    DFTT['l'] = new jsr::Argument::AType(&ffi_type_slong, 'l');        /* #define _C_LNG */
+    DFTT['L'] = new jsr::Argument::AType(&ffi_type_ulong, 'L');        /* #define _C_ULNG */
+    DFTT['f'] = new jsr::Argument::AType(&ffi_type_float, 'f');        /* #define _C_FLT */
+    DFTT['d'] = new jsr::Argument::AType(&ffi_type_double, 'd');       /* #define _C_DBL */
+    DFTT['^'] = new jsr::Argument::AType(&ffi_type_pointer, '^');      /* #define _C_PTR */
+    DFTT['*'] = new jsr::Argument::AType(&ffi_type_pointer, '*');      /* #define _C_CHARPTR */
+    DFTT['v'] = new jsr::Argument::AType(&ffi_type_void, 'v');         /* #define _C_VOID */
+    DFTT['B'] = new jsr::Argument::AType(GetIntegerType<bool>(), 'B'); /* #define _C_BOOL */
+    DFTT['q'] = new jsr::Argument::AType(GetIntegerType<long long>(), 'q'); /* #define _C_LNG_LNG */
+    DFTT['Q'] = new jsr::Argument::AType(GetUnIntegerType<unsigned long long>(), 'Q'); /* #define _C_ULNG_LNG */
 //    DFTT['b'] = GetIntegerType<bool>(); /* #define _C_BFLD */
-    DFTT['B'] = GetIntegerType<bool>(); /* #define _C_BOOL */
-    DFTT['v'] = &ffi_type_void;         /* #define _C_VOID */
 //    DFTT['?'] = &ffi_type_;           /* #define _C_UNDEF */
-    DFTT['^'] = &ffi_type_pointer;      /* #define _C_PTR */
-    DFTT['*'] = &ffi_type_pointer;      /* #define _C_CHARPTR */
+    
 //    DFTT['%'] = &ffi_type_; /* #define _C_ATOM */
 //    DFTT['['] = &ffi_type_; /* #define _C_ARY_B */
 //    DFTT[']'] = &ffi_type_; /* #define _C_ARY_E */
@@ -86,7 +91,7 @@ jsr::Invocation::Invocation(const char* encode)
     int loc = 0;
     while (encode[loc] != 0x00) {
         int offset = 0;
-        ffi_type* t = DFTT[encode[loc]];
+        Argument::AType* t = DFTT[encode[loc]];
         if (t) {
             m_types.push_back(t);
             offset = 1;
@@ -94,7 +99,7 @@ jsr::Invocation::Invocation(const char* encode)
             // struct
             jsr::Argument::AType* t = new jsr::Argument::AType(encode+loc, &offset);
             m_stypes.push_back(t);
-            m_types.push_back((ffi_type*)m_stypes[m_stypes.size() - 1]);
+            m_types.push_back(m_stypes[m_stypes.size() - 1]);
         }else{
             throw std::runtime_error(&"unsupported encode : " [ encode[loc]]);
         }
@@ -102,7 +107,7 @@ jsr::Invocation::Invocation(const char* encode)
     }
     
     // 2. prepare cif
-    if (FFI_OK != ffi_prep_cif(&m_cif, FFI_DEFAULT_ABI,(unsigned) m_types.size() - 1, m_types[0], m_types.data() + 1)) {
+    if (FFI_OK != ffi_prep_cif(&m_cif, FFI_DEFAULT_ABI,(unsigned) m_types.size() - 1, (ffi_type*)m_types[0], (ffi_type**)m_types.data() + 1)) {
         throw std::runtime_error(std::string("Invalid Invocation encode: ") + encode);
     }
 }
@@ -126,7 +131,7 @@ jsr::Argument* jsr::Invocation::invok(void *fn, std::vector<Argument *> argv)
     return rvalue;
 }
 
-jsr::Argument::Argument(JSContextRef ctx, JSValueRef val, ffi_type const* type): m_type(type)
+jsr::Argument::Argument(JSContextRef ctx, JSValueRef val, AType const* type): m_type(type)
 {
     switch (m_type->type) {
         case FFI_TYPE_VOID: return;
@@ -145,19 +150,33 @@ jsr::Argument::Argument(JSContextRef ctx, JSValueRef val, ffi_type const* type):
             throw std::runtime_error("struct argument not supported yet.");
         }break;
         case FFI_TYPE_POINTER:  {
-            // void* 类型稍微复杂一些，
+            // void* 类型稍微复杂一些，需要 判断 m_encode 类型
             // 如果 val 是 String , 将转化为 char*
             // 其它类型，直接调用 toNumber 方法
-            if (JSValueIsString(ctx, val)) {
-                char* bytes = JSValueCast<char*>(ctx, val);
-                *(char**)m_val = bytes;
-                
-                m_free = [](char val[16]){
-                    char* bytes = *(char**)val;
-                    delete [] bytes;
-                };
-            }else{
-                *(void**)m_val = (void*)JSValueCast<ptrdiff_t>(ctx, val);
+            
+            switch (m_type->m_encode) {
+#ifdef __APPLE__
+                case '@':
+                case '#': { // objective-c Class Object
+                    foundation::ExtractValue(this, ctx, (JSObjectRef)val);
+                }break;
+                case '^': {  // block
+                    throw std::runtime_error("not support block untile now.");
+                }break;
+#endif
+                default:{
+                    if (JSValueIsString(ctx, val)) {
+                        char* bytes = JSValueCast<char*>(ctx, val);
+                        *(char**)m_val = bytes;
+                        
+                        m_free = [](char val[16]){
+                            char* bytes = *(char**)val;
+                            delete [] bytes;
+                        };
+                    }else{
+                        *(void**)m_val = (void*)JSValueCast<ptrdiff_t>(ctx, val);
+                    }
+                }break;
             }
         }break;
         default:
@@ -182,14 +201,33 @@ JSValueRef jsr::Argument::getResult(JSContextRef ctx)
         case FFI_TYPE_UINT64:   return JSValueMake<uint64_t>(ctx, *((uint64_t*)m_val));
         case FFI_TYPE_SINT64:   return JSValueMake<int64_t>(ctx, *((int64_t*)m_val));
         case FFI_TYPE_STRUCT:   throw std::runtime_error("struct argument not supported yet.");
-        case FFI_TYPE_POINTER:  return JSValueMake<ptrdiff_t>(ctx, *(ptrdiff_t*)m_val);
+        case FFI_TYPE_POINTER:  {
+            switch (m_type->m_encode) {
+#ifdef __APPLE__
+                case '@':
+                case '#': { // objective-c Class Object
+                    return foundation::GenerateValue(this, ctx);
+                }break;
+                case '^': {  // block
+                    throw std::runtime_error("not support block untile now.");
+                }break;
+#endif
+                default:return JSValueMake<ptrdiff_t>(ctx, *(ptrdiff_t*)m_val);
+            }
+            
+        }break;
             
         default:throw std::runtime_error("unsupported argument type.");
     }
     return NULL;
 }
 
-jsr::Argument::AType::AType(const char* encode, int* enLen)
+jsr::Argument::AType::AType(const ffi_type* type, const char encode): m_encode(encode)
+{
+    this->_ffi_type::operator=(*type);
+}
+
+jsr::Argument::AType::AType(const char* encode, int* enLen): m_encode(encode[0])
 {
     *enLen = 1;
     
@@ -238,4 +276,23 @@ jsr::Argument::AType::~AType()
         delete *iter;
     }
 }
+
+const char jsr::Argument::AType::SupportedEncodeTable[128] = {
+    0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,
+    0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,
+    0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,
+    0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,
+    0x0,0x0,0x0,'#',0x0,0x0,0x0,0x0,
+    0x0,0x0,'*',0x0,0x0,0x0,0x0,0x0,
+    0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,
+    0x0,0x0,':',0x0,0x0,0x0,0x0,0x0,
+    '@',0x0,'B','C',0x0,0x0,0x0,0x0,
+    'H','I',0x0,0x0,'L',0x0,0x0,'O',
+    0x0,'Q',0x0,'S','T',0x0,0x0,0x0,
+    'X',0x0,0x0,0x0,0x0,0x0,'^',0x0,
+    0x0,0x0,0x0,'c','d',0x0,'f',0x0,
+    'h','i',0x0,0x0,'l',0x0,0x0,'o',
+    0x0,'q',0x0,'s','t',0x0,'v',0x0,
+    'x',0x0,0x0,0x0,0x0,0x0,0x0,0x0
+};
 

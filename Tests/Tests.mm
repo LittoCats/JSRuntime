@@ -10,7 +10,12 @@
 
 #import <JavaScriptCore/JavaScriptCore.h>
 
+#import <objc/runtime.h>
+
 extern "C" JSValueRef/*exception*/ JSRuntimeAttachToJSContext(JSGlobalContextRef ctx);
+
+
+typedef void (^Task)(int fd);
 
 @interface Tests : XCTestCase
 
@@ -33,7 +38,13 @@ extern "C" JSValueRef/*exception*/ JSRuntimeAttachToJSContext(JSGlobalContextRef
     
 }
 
+- (void)block:(void(^)(int, float))task {
+    
+}
+
 - (void)test {
+    
+    
     
     JSContext* context = [JSContext new];
     context.exceptionHandler = ^(JSContext* context, JSValue* exception) {
